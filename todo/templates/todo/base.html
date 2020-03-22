@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <title>{% block title_block %} ToDo {% endblock %} </title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="icon" href="{% static 'images/favicon.ico' %}">
+        <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    </head>
+    <body class="backgnd-color">
+        {% block body_block %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            ToDo
-        </title>
-    </head>
-    <body>
+{% extends 'todo/base.html' %}
+
+{% block body_block %}
+    <div class="title">
         <h1>Your List</h1>
+    </div>
+    <div class="content">
         {% if todo %}
         <ul>
         {% for todo in todo %}
@@ -27,5 +25,5 @@
         {% else %}
         No lists.
         {% endif %} 
-    </body>
-</html>
+    </div>
+{% endblock %}

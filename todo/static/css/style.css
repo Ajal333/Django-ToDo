@@ -1,0 +1,24 @@
+.backgnd-color {
+    background-color: rgb(213, 252, 252);
+    color: black;
+}
+
+.title {
+    text-align: center;
+}
+
+.content {
+    margin-left: 43%;
+    margin-top: 2%;
+}
+
+.btn {
+    background-color:rgb(119, 236, 178);
+    height: 40px;
+    border-radius: 10px;
+    width: 90px;
+    color: black;
+    border-color: rgb(119, 236, 178);
+    margin-left: 5%;
+}
+

@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            ToDo
-        </title>
-    </head>
-    <body>
+{% extends 'todo/base.html' %}
+
+{% block body_block %}
+    <div class="title">
         <h1>ToDo List</h1>
+    </div>
+    <div class="content">
         <form action="{% url 'index' %}" method="POST">
             {% csrf_token %}
             <ul style="list-style: none;">
@@ -26,9 +24,8 @@
                 </ul>
                 <li><input type="checkbox" name="todo[]" value="Cook Food">
                 <label for='todo'>Cook Food</label><br></li>
-            </ul>
-            
-            <input type="submit" value="Submit">
+            </ul> 
+                <input class="btn" id="sub_btn" type="submit" value="Submit">  
         </form>
-    </body>
-</html>
+    </div>
+{% endblock %}
