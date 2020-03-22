@@ -20,8 +20,7 @@ class Category(models.Model) :
 class todo(models.Model) :
     title = models.CharField(max_length = 120)
     content = models.CharField(max_length = 120)
-    date_created = models.DateField(auto_now_add = True)
-    due_date = models.DateField()
+    category = models.ForeignKey(Category)
 
     class Meta :
         verbose_name_plural = 'todoes'
