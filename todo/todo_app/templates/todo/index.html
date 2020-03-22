@@ -9,14 +9,25 @@
         <h1>ToDo List</h1>
         <form action="{% url 'index' %}" method="POST">
             {% csrf_token %}
-            <input type="checkbox" name="todo[]" value="Clean The House">
-            <label for='todo'>Clean the House</label><br>
-            <input type="checkbox" name="todo[]" value="Clean The Car">
-            <label for='todo'>Clean the Car</label><br>
-            <input type="checkbox" name="todo[]" value="Buy Groceries">
-            <label for='todo'>Buy Groceries</label><br>
-            <input type="checkbox" name="todo[]" value="Cook Food">
-            <label for='todo'>Cook Food</label><br>
+            <ul style="list-style: none;">
+               <li><input type="checkbox" name="todo[]" value="Clean The House">
+                <label for='todo'>Clean the House</label><br></li>
+                <li><input type="checkbox" name="todo[]" value="Clean The Car">
+                <label for='todo'>Clean the Car</label><br></li>
+                <li><input type="checkbox" name="todo[]" value="Buy Groceries">
+                <label for='todo'>Buy Groceries</label><br></li>
+                <ul style="list-style: none;">
+                    <li><input type="checkbox" name="subtodo[]" value="Cucumber">
+                    <label for="subtodo">Cucumber</label></li>
+                    <li><input type="checkbox" name="subtodo[]" value="Potato">
+                    <label for="subtodo">Potato</label></li>
+                    <li><input type="checkbox" name="subtodo[]" value="Tomato">
+                    <label for="subtodo">Tomato</label></li>
+                </ul>
+                <li><input type="checkbox" name="todo[]" value="Cook Food">
+                <label for='todo'>Cook Food</label><br></li>
+            </ul>
+            
             <input type="submit" value="Submit">
         </form>
     </body>

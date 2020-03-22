@@ -11,8 +11,11 @@ def index(request) :
     context_dict = {}
     if request.method == 'POST' :
         todo = request.POST.getlist('todo[]')
+        sub_todo = request.POST.getlist('subtodo[]')
         print(todo)
+        print(sub_todo)
         context_dict['todo'] = todo
+        context_dict['subtodo'] = sub_todo
         print(context_dict)
         return render(request,'todo/display.html',context_dict)
     return render(request,'todo/index.html')

@@ -10,7 +10,18 @@
         {% if todo %}
         <ul>
         {% for todo in todo %}
-            <li>{{ todo }}</li>
+            {% if  todo == 'Buy Groceries' %}
+                <li>{{todo}}</li>
+                {% if subtodo %}
+                <ul>
+                    {% for subtodo in subtodo %}
+                    <li>{{subtodo}}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            {% else %}
+                <li>{{todo}}</li>
+            {% endif %}
         {% endfor %}
         </ul>
         {% else %}
