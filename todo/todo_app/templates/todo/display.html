@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            ToDo
+        </title>
+    </head>
+    <body>
+        <h1>Your List</h1>
+        {% if todo %}
+        <ul>
+        {% for todo in todo %}
+            <li>{{ todo }}</li>
+        {% endfor %}
+        </ul>
+        {% else %}
+        No lists.
+        {% endif %} 
+    </body>
+</html>

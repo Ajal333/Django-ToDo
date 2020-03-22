@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            ToDo
+        </title>
+    </head>
+    <body>
+        <h1>ToDo List</h1>
+        <form action="{% url 'index' %}" method="POST">
+            {% csrf_token %}
+            <input type="checkbox" name="todo[]" value="Clean The House">
+            <label for='todo'>Clean the House</label><br>
+            <input type="checkbox" name="todo[]" value="Clean The Car">
+            <label for='todo'>Clean the Car</label><br>
+            <input type="checkbox" name="todo[]" value="Buy Groceries">
+            <label for='todo'>Buy Groceries</label><br>
+            <input type="checkbox" name="todo[]" value="Cook Food">
+            <label for='todo'>Cook Food</label><br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
