@@ -1,0 +1,27 @@
+{% extends 'todo/base.html' %}
+
+{% block body_block %}
+    <div class="title">
+        <h1>ToDo List</h1>
+    </div>
+    <div class="content">
+        <form action="{% url 'view' %}" method="POST">
+            {% csrf_token %}
+            {% for category in category %}
+                <ul style="list-style: none;">
+                    <li><input type="checkbox" name="cat[]" value="{{category}}">
+                    <label for="cat">{{category}}</label></li>
+                {% for list in todo %}
+                    <ul style="list-style: none;">
+                    {% if category == list.category %}
+                    <li><input type="checkbox" name="todo[]" value="{{list}}">
+                    <label for='todo'>{{list.title}} - {{list.content}} </label><br></li>
+                    {% endif %}
+                    </ul>
+            {%endfor%} 
+            </ul>    
+            {% endfor %}
+            <input class="btn" id="sub_btn" type="submit" value="Submit">  
+        </form>
+    </div>
+{% endblock %}

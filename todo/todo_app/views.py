@@ -23,25 +23,45 @@ def index(request) :
     return render(request,'todo/index.html')
 
 def add_category(request) :
-    form = CategoryForm()
+    form1 = CategoryForm()
     if request.method == 'POST' :
         form = CategoryForm(request.POST)
 
         if form.is_valid() :
             form.save(commit=True)
 
-            return HttpResponse('Category Added')
+            return render(request,'todo/add_category.html',{'message':'Category Added','form':form1})
         
-    return render(request,'todo/add_category.html',{'form':form})
+    return render(request,'todo/add_category.html',{'form':form1})
         
 def add_list(request) :
-    form = todoForm() 
+    form1 = todoForm() 
     if request.method == 'POST' :
         form = todoForm(request.POST)
 
         if form.is_valid() :
             form.save(commit=True)
             
-            return HttpResponse('List Added')
+            return render(request,'todo/add_list.html',{'message':'List Added','form':form1})
 
-    return render(request,'todo/add_list.html',{'form':form})
+    return render(request,'todo/add_list.html',{'form':form1})
+
+def view(request) :
+    context_dict = {}
+    category = Category.objects.all()
+    main_list = todo.objects.all()
+
+    if request.method == 'POST' :
+        list1 = request.POST.getlist('todo[]')
+        list2 = request.POST.getlist('cat[]')
+        print(list1)
+        print(list2)
+        context_dict['todo'] = list1
+        context_dict['category'] = list2
+        context_dict['main_todo'] = main_list
+        print(context_dict)
+        return render(request,'todo/display.html',context_dict)
+
+    context_dict['category'] = category
+    context_dict['todo'] = main_list
+    return render(request,'todo/view.html',context_dict)

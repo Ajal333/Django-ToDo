@@ -5,25 +5,21 @@
         <h1>Your List</h1>
     </div>
     <div class="content">
-        {% if todo %}
+        {% if category %}
+        {% for category in category %}
         <ul>
-        {% for todo in todo %}
-            {% if  todo == 'Buy Groceries' %}
-                <li>{{todo}}</li>
-                {% if subtodo %}
-                <ul>
-                    {% for subtodo in subtodo %}
-                    <li>{{subtodo}}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            {% else %}
-                <li>{{todo}}</li>
-            {% endif %}
+            <li>{{category}}</li>
+        {% for list in todo %}
+        {% for main in main_todo %}
+        {% if list == main.title and category == main.category.category %}
+            <ul>
+                <li>{{list}} - {{main.content}} - {{main.category}}  </li>
+            </ul>
+        {% endif %}
+        {% endfor %}
         {% endfor %}
         </ul>
-        {% else %}
-        No lists.
-        {% endif %} 
+        {% endfor %}
+        {% endif %}
     </div>
 {% endblock %}
