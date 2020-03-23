@@ -9,18 +9,18 @@ from todo_app.forms import CategoryForm, todoForm
 
 # Create your views here.
 
-def index(request) :
-    context_dict = {}
-    if request.method == 'POST' :
-        todo = request.POST.getlist('todo[]')
-        sub_todo = request.POST.getlist('subtodo[]')
-        print(todo)
-        print(sub_todo)
-        context_dict['todo'] = todo
-        context_dict['subtodo'] = sub_todo
-        print(context_dict)
-        return render(request,'todo/display.html',context_dict)
-    return render(request,'todo/index.html')
+#def index(request) :
+#    context_dict = {}
+#    if request.method == 'POST' :
+#        todo = request.POST.getlist('todo[]')
+#        sub_todo = request.POST.getlist('subtodo[]')
+#        print(todo)
+#        print(sub_todo)
+#        context_dict['todo'] = todo
+#        context_dict['subtodo'] = sub_todo
+#        print(context_dict)
+#        return render(request,'todo/display.html',context_dict)
+#    return render(request,'todo/index.html')
 
 def add_category(request) :
     form1 = CategoryForm()
@@ -43,6 +43,8 @@ def add_list(request) :
             form.save(commit=True)
             
             return render(request,'todo/add_list.html',{'message':'List Added','form':form1})
+        else :
+            print('error')
 
     return render(request,'todo/add_list.html',{'form':form1})
 

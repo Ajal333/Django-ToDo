@@ -13,7 +13,7 @@
         {% for main in main_todo %}
         {% if list == main.title and category == main.category.category %}
             <ul>
-                <li>{{list}} - {{main.content}} - {{main.category}}  </li>
+                <li>{{list}} - {{main.content}} - Due by: {{main.due_date}}  </li>
             </ul>
         {% endif %}
         {% endfor %}

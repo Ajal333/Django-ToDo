@@ -20,6 +20,7 @@ class Category(models.Model) :
 class todo(models.Model) :
     title = models.CharField(max_length = 120)
     content = models.CharField(max_length = 120)
+    due_date = models.DateField()
     category = models.ForeignKey(Category)
 
     class Meta :
