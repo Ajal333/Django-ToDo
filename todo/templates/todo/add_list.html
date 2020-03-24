@@ -26,11 +26,14 @@
     <div class="list">
         {% if category %}
             {% for category in category %}  
-            <h2>{{category}}</h2>   
+            <h2>{{category}}<button  class='btn1' href = ""> Delete</button> </h2>
                   {% if todo %}
                         {% for todo in todo %}
                             {% if todo.category == category %}
-                               {{todo.title}} - {{todo.content}} - {{todo.due_date}}<br>
+                               {{todo.title}} - {{todo.content}} - {{todo.due_date}} 
+                            <form action="{% url 'del_list' todo.title %}">
+                               <button  class='btn1'> Delete</button><br>
+                            </form>
                             {% endif %}
                         {% endfor %}
                     {% endif %}

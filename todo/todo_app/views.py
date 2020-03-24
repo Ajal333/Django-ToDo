@@ -44,7 +44,7 @@ def add_list(request) :
         if form.is_valid() :
             form.save(commit=True)
             
-            return render(request,'todo/add_list.html',{'message':'List Added','form':form1,'category':Category,'todo':todo,})
+            return render(request,'todo/add_list.html',{'message':'List Added','form':form1,'category':category,'todo':todo_1,})
         else :
             print('error')
 
@@ -69,3 +69,18 @@ def view(request) :
     context_dict['category'] = category
     context_dict['todo'] = main_list
     return render(request,'todo/view.html',context_dict)
+
+def del_list(request, list1) :
+    if request.method == 'POST' :
+        form1 = todoForm()
+        category = Category.objects.all()
+        todo_1 = todo.objects.all()
+        for data in todo_1 :
+            if list1 == data.title :
+                todo.objects.filter(title = list1).delete()
+                print('{} is deleted'.format(list1))
+            else :
+                continue
+        return render(request,'todo/add_list.html',{'form':form1,'category':category,'todo':todo_1})
+    return render(request,'todo/add_list.html',{'form':form1,'category':category,'todo':todo_1})
+    
