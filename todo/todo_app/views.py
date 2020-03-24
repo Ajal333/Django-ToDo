@@ -71,16 +71,13 @@ def view(request) :
     return render(request,'todo/view.html',context_dict)
 
 def del_list(request, list1) :
-    if request.method == 'POST' :
-        form1 = todoForm()
-        category = Category.objects.all()
-        todo_1 = todo.objects.all()
-        for data in todo_1 :
-            if list1 == data.title :
-                todo.objects.filter(title = list1).delete()
-                print('{} is deleted'.format(list1))
-            else :
-                continue
-        return render(request,'todo/add_list.html',{'form':form1,'category':category,'todo':todo_1})
+    form1 = todoForm()
+    category = Category.objects.all()
+    todo_1 = todo.objects.all()
+    for data in todo_1 :
+        if list1 == data.title :
+            todo.objects.filter(title = list1).delete()
+            print('{} is deleted'.format(list1))
+        else :
+            continue
     return render(request,'todo/add_list.html',{'form':form1,'category':category,'todo':todo_1})
-    
