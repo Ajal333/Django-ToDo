@@ -23,4 +23,15 @@
         <strong>{{message}}</strong>
         {% endif %}
     </div>
+    <div class="content">
+        <h2><a style="text-decoration: none;" href="{% url 'add_list' %}">Tasks</a></h2>
+    </div>
+    <div class="list">
+        <h2 style="text-align: center;">Existing Categories</h2><br>
+        {% if category %}
+        {% for cats in category %}
+            <h2 style="text-align: center;">{{cats}}</h2><br>
+        {% endfor %}
+        {% endif %}
+    </div>
 {% endblock %}

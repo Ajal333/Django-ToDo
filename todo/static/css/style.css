@@ -18,7 +18,7 @@
     margin-top: 2%;
     background-color: rgb(121, 112, 241);
     padding-left: 2%;
-    margin-right: 30%;
+    margin-right: 40%;
     padding-top: 1%;
     padding-bottom: 2%;
     color: white;
@@ -47,7 +47,7 @@
 }
 
 .btn1 {
-    background-color:rgba(143, 66, 66, 0.233);
+    background-color: white;
     height: 25px;
     width: 75px;
     color: black;
@@ -57,7 +57,7 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .btn1:hover {
-    background-color: rgb(85, 224, 182);
+    background-color:rgb(185, 255, 246);
     cursor: pointer;
     color: white;
     border-width: 2px;
@@ -71,6 +71,8 @@
     cursor: pointer;
     color: white;
     border-width: 5px;
+    border-style: solid;
+    border-radius: 8px;
     border-color: rgb(119, 236, 178);
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
@@ -84,4 +86,8 @@
 
 .subcheckbox {
     padding-top: 10px;
+}
+
+a:hover{
+    color: tomato;
 }

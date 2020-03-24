@@ -19,6 +19,9 @@
         </form>
     </div>
     <div class="content">
+        <h2><a style="text-decoration: none;" href="{% url 'add_category' %}">Have a new Category to add?</a></h2>
+    </div>
+    <div class="content">
         {% if message %}
         <strong>{{message}}</strong>
         {% endif %}
@@ -26,14 +29,12 @@
     <div class="list">
         {% if category %}
             {% for category in category %}  
-            <h2>{{category}}<button  class='btn1' href = ""> Delete</button> </h2>
+            <h2>{{category}}<a href="{% url 'del_cat' category %}"><button  class='btn1'>Delete</button></a></h2>
                   {% if todo %}
                         {% for todo in todo %}
                             {% if todo.category == category %}
                                {{todo.title}} - {{todo.content}} - {{todo.due_date}} 
-                            <form action="{% url 'del_list' todo.title %}">
-                               <button  class='btn1'> Delete</button><br>
-                            </form>
+                               <a href="{% url 'del_list' todo.title %}"><button  class='btn1'> Delete</button></a><br>
                             {% endif %}
                         {% endfor %}
                     {% endif %}
