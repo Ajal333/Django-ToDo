@@ -23,4 +23,20 @@
         <strong>{{message}}</strong>
         {% endif %}
     </div>
+    <div class="list">
+        {% if category %}
+            {% for category in category %}  
+            <h2>{{category}}</h2>   
+                  {% if todo %}
+                        {% for todo in todo %}
+                            {% if todo.category == category %}
+                               {{todo.title}} - {{todo.content}} - {{todo.due_date}}<br>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+            {%endfor%}
+            {%else%}
+                No List 
+        {%endif%}
+    </div>
 {% endblock %}

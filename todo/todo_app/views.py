@@ -35,6 +35,8 @@ def add_category(request) :
     return render(request,'todo/add_category.html',{'form':form1})
         
 def add_list(request) :
+    category = Category.objects.all()
+    todo_1 = todo.objects.all()
     form1 = todoForm() 
     if request.method == 'POST' :
         form = todoForm(request.POST)
@@ -42,11 +44,11 @@ def add_list(request) :
         if form.is_valid() :
             form.save(commit=True)
             
-            return render(request,'todo/add_list.html',{'message':'List Added','form':form1})
+            return render(request,'todo/add_list.html',{'message':'List Added','form':form1,'category':Category,'todo':todo,})
         else :
             print('error')
 
-    return render(request,'todo/add_list.html',{'form':form1})
+    return render(request,'todo/add_list.html',{'form':form1,'category':category,'todo':todo_1,})
 
 def view(request) :
     context_dict = {}

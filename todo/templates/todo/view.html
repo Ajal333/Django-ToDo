@@ -4,20 +4,22 @@
     <div class="title">
         <h1>ToDo List</h1>
     </div>
-    <div class="content">
+    <div class="content checkbox">
         <form action="{% url 'view' %}" method="POST">
             {% csrf_token %}
             {% for category in category %}
-                <ul style="list-style: none;">
+                <ul style="list-style: none; ">
                     <li><input type="checkbox" name="cat[]" value="{{category}}">
                     <label for="cat">{{category}}</label></li>
                 {% for list in todo %}
-                    <ul style="list-style: none;">
+                <div class="subcheckbox">
+                    <ul style="list-style: none;"> 
                     {% if category == list.category %}
                     <li><input type="checkbox" name="todo[]" value="{{list}}">
                     <label for='todo'>{{list.title}} - {{list.content}} - Due By: {{list.due_date}} </label><br></li>
                     {% endif %}
                     </ul>
+                </div>
             {%endfor%} 
             </ul>    
             {% endfor %}
