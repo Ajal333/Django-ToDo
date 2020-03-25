@@ -1,5 +1,5 @@
 {% extends 'todo/base.html' %}
-
+{% load staticfiles %}
 {% block body_block %}
     <div class="title">
         <h1>Add List</h1>
@@ -29,12 +29,12 @@
     <div class="list">
         {% if category %}
             {% for category in category %}  
-            <h2>{{category}}<a href="{% url 'del_cat' category %}"><button  class='btn1'>Delete</button></a></h2>
+            <h2>{{category}}<a href="{% url 'del_cat' category %}"><img class="img" src="{% static "images/delete.png" %}" alt="delete image"></a><br></h2>
                   {% if todo %}
                         {% for todo in todo %}
                             {% if todo.category == category %}
-                               {{todo.title}} - {{todo.content}} - {{todo.due_date}} 
-                               <a href="{% url 'del_list' todo.title %}"><button  class='btn1'> Delete</button></a><br>
+                               <h3>{{todo.title}} - {{todo.content}} - {{todo.due_date}} 
+                               <a href="{% url 'del_list' todo.title %}"><img class="img" src="{% static "images/delete.png" %}" alt="delete image"></a><br></h3>
                             {% endif %}
                         {% endfor %}
                     {% endif %}

@@ -91,3 +91,7 @@
 a:hover{
     color: tomato;
 }
+
+.img {
+    width: 50px;
+}
