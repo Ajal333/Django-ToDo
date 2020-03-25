@@ -24,6 +24,7 @@ from datetime import date, datetime
 #    return render(request,'todo/index.html')
 
 def add_category(request) :
+    due_date()
     form1 = CategoryForm()
     category = Category.objects.all()
     if request.method == 'POST' :
@@ -54,6 +55,7 @@ def add_list(request) :
     return render(request,'todo/add_list.html',{'form':form1,'category':category,'todo':todo_1,})
 
 def view(request) :
+    due_date()
     context_dict = {}
     category = Category.objects.all()
     main_list = todo.objects.all()
@@ -74,6 +76,7 @@ def view(request) :
     return render(request,'todo/view.html',context_dict)
 
 def del_list(request, list1) :
+    due_date()
     form1 = todoForm()
     category = Category.objects.all()
     todo_1 = todo.objects.all()
@@ -87,6 +90,7 @@ def del_list(request, list1) :
     return render(request,'todo/add_list.html',{'form':form1,'category':category,'todo':todo_2})
 
 def del_cat(request,cat) :
+    due_date()
     form1 = todoForm()
     category = Category.objects.all()
     todo_1 = todo.objects.all()
@@ -104,9 +108,6 @@ def due_date() :
     category = Category.objects.all()
     list1 = todo.objects.all()
     for data in list1 :
-        year1 = datetime.now()
-        year4 = data.due_date
-        year2 = data.due_date.strftime('%Y/%m/%d')
-        year3 = str(year1.year)+'/'+str(year1.month)+'/'+str(year1.day)
-        if year4 == year3 :
-            print('ammachi')
+        if data.due_date < date.today() :
+            todo.objects.filter(due_date = data.due_date).delete()
+            print("Todo deleted")
