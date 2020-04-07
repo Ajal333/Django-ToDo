@@ -29,7 +29,7 @@ SECRET_KEY = '@2nqn_cyhpad_@+x54ryvohd)-rm!&ja1t#iggf4br37@n4rzk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://ajal.pythonanywhere.com',u'ajal.pythonanywhere.com',u'localhost']
 
 
 # Application definition
